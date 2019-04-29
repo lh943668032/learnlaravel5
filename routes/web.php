@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-Route::post('/home', 'HomeController@index');
+//Route::get('/home', 'HomeController@index');
+//Route::post('/home', 'HomeController@index');
 
 Route::get('now', function () {
     return date("Y-m-d H:i:s");
