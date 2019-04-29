@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('test','HomeController@test1');
+use Illuminate\Support\Facades\Auth;
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+//Route::get('test','HomeController@test1');
 
 
 Auth::routes();

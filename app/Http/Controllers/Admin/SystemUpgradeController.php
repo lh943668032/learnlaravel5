@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Article;
 use App\SystemVersion;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 
 class SystemUpgradeController extends Controller
 {
@@ -15,7 +15,9 @@ class SystemUpgradeController extends Controller
      */
     public function index()
     {
-        return view('admin/system/index')->with('versions',SystemVersion::all());
+
+        Log::debug("systemUpgradeController:index");
+        return view('admin/system/index')->with('versions', SystemVersion::all());
     }
 
     /**
@@ -24,14 +26,16 @@ class SystemUpgradeController extends Controller
      */
     public function create()
     {
+        Log::debug("systemUpgradeController:create");
         return view('admin/system/create');
     }
 
     public function store(Request $request) // Laravel 的依赖注入系统会自动初始化我们需要的 Request 类
     {
+        Log::debug("systemUpgradeController:store");
         // 数据验证
         $this->validate($request, [
-            'branch' => 'required', // 必填、在 articles 表中唯一、最大长度 255
+            'branch' => 'required|unique:system_versions|max:255\'', // 必填、在 articles 表中唯一、最大长度 255
             'version' => 'required|integer:0,1000', // 必填
         ]);
 
@@ -55,8 +59,10 @@ class SystemUpgradeController extends Controller
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function edit($id){
-        return view('admin/system/edit')->with("version",SystemVersion::find($id));
+    public function edit($id)
+    {
+        Log::debug("systemUpgradeController:edit");
+        return view('admin/system/edit')->with("version", SystemVersion::find($id));
     }
 
     /**
@@ -64,10 +70,12 @@ class SystemUpgradeController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request){
+    public function update(Request $request)
+    {
+        Log::debug("systemUpgradeController:update");
         // 数据验证
         $this->validate($request, [
-            'branch' => 'required|unique:systemversions|max:255', // 必填、在 articles 表中唯一、最大长度 255
+            'branch' => 'required|max:255', // 必填、在 articles 表中唯一、最大长度 255
             'version' => 'required|integer', // 必填
         ]);
 
@@ -86,8 +94,10 @@ class SystemUpgradeController extends Controller
         }
     }
 
-    public function getVersions(){
+    public function getVersions()
+    {
+        Log::debug("systemUpgradeController:getVersions");
         $versions = SystemVersion::all();
-        return json_encode($versions,JSON_UNESCAPED_UNICODE);
+        return json_encode($versions, JSON_UNESCAPED_UNICODE);
     }
 }
