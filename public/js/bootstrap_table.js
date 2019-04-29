@@ -13,7 +13,7 @@ $(function () {
 
 var TableInit = function () {
     var $table = $('#mytab')
-    var $remove = $('#remove')
+    // var $remove = $('#remove')
     var selections = []
 
     function getIdSelections() {
@@ -104,12 +104,12 @@ var TableInit = function () {
             // alert('You click like action, row: ' + JSON.stringify(row))
             window.open('systems/'+row.id+'/edit','_self');
         },
-        'click .remove': function (e, value, row, index) {
-            $table.bootstrapTable('remove', {
-                field: 'id',
-                values: [row.id]
-            })
-        }
+        // 'click .remove': function (e, value, row, index) {
+        //     $table.bootstrapTable('remove', {
+        //         field: 'id',
+        //         values: [row.id]
+        //     })
+        // }
     }
 
     //操作栏的格式化
@@ -117,7 +117,7 @@ var TableInit = function () {
         var id = value;
         var result = "";
         result += "<a href='javascript:;' class='edit btn btn-xs blue' title='编辑'><span class='glyphicon glyphicon-pencil'></span></a>";
-        result += "<a href='javascript:;' class='remove btn btn-xs red' title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
+        // result += "<a href='javascript:;' class='remove btn btn-xs red' title='删除'><span class='glyphicon glyphicon-remove'></span></a>";
         return result;
     }
     //得到查询的参数
