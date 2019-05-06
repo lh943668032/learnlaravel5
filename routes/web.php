@@ -47,4 +47,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Admin', 'prefix' => 'admin
     Route::post('system/getversions','SystemUpgradeController@getVersions');
 });
 
+Route::post('checkUpdate','HomeController@checkUpdate');
+Route::get('checkUpdate','HomeController@checkUpdate');
+
 

@@ -100,19 +100,4 @@ class SystemUpgradeController extends Controller
         $versions = SystemVersion::all();
         return json_encode($versions, JSON_UNESCAPED_UNICODE);
     }
-
-    public function checkUpdate(Request $request){
-        $userinfo = SystemVersion::wh;
-        if($userinfo){
-            $count = $userinfo->count();
-            if($count != 0){
-
-            }else{
-
-            }
-        }else{
-
-        }
-        return $userinfo;
-    }
 }
