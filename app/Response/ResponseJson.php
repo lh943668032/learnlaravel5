@@ -20,7 +20,7 @@ trait ResponseJson
      * @return mixed
      */
     public function jsonSuccessData($data = []){
-        return $this->jsonResponse('0','Successed',$data);
+        return $this->jsonResponse(0,'Successed',$data);
     }
     /**
      * 返回一个json
