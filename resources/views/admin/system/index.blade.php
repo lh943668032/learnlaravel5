@@ -109,6 +109,6 @@
 <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-table/1.11.1/bootstrap-table.js"></script>
 <script src="//cdn.bootcss.com/bootstrap-table/1.11.1/locale/bootstrap-table-zh-CN.js"></script>
-<script type="text/javascript" src="{{asset('js/bootstrap_table.js?t=20190505')}}"></script>
+<script type="text/javascript" src="{{asset('js/bootstrap_table.js?t=20190508')}}"></script>
 </body>
 </html>

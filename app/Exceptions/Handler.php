@@ -4,7 +4,7 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Support\Facades\Log;
+//use Illuminate\Support\Facades\Log;
 
 class Handler extends ExceptionHandler
 {
@@ -49,8 +49,8 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        Log::debug($exception->getMessage());
-        Log::debug($exception->getTrace());
+//        Log::debug($exception->getMessage());
+//        Log::debug($exception->getTrace());
         return parent::render($request, $exception);
     }
 }
